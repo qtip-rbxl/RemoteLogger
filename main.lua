@@ -64,6 +64,9 @@ logDetailsTextBox.Parent = logDetailsFrame
 logDetailsTextBox.Size = UDim2.new(1, -10, 1, -10)
 logDetailsTextBox.Position = UDim2.new(0, 5, 0, 5)
 logDetailsTextBox.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+logDetailsTextBox.Text = ""
+logDetailsTextBox.PlaceholderText = "Logged arguments go here"
+logDetailsTextBox.PlaceholderColor3 = Color3.fromRGB(150, 150, 150)
 logDetailsTextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
 logDetailsTextBox.TextXAlignment = Enum.TextXAlignment.Left
 logDetailsTextBox.TextYAlignment = Enum.TextYAlignment.Top
@@ -152,7 +155,7 @@ local function logRemoteCall(remoteName, callType, args)
         local argsText = ""
         for i, arg in ipairs(args) do
             if type(arg) == "table" then
-                argsText = argsText .. "Table: " .. tostring(arg) .. "\n"
+                argsText = unpack(arg) .. "\n"
             else
                 argsText = argsText .. tostring(arg) .. "\n"
             end
