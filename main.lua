@@ -183,11 +183,9 @@ game.DescendantAdded:Connect(function(descendant)
     end
 end)
 
---// Services
 local Players = game:GetService('Players')
 local UIS = game:GetService("UserInputService")
 
---// Variables
 local UI = mainFrame
 
 local Player = Players.LocalPlayer
@@ -199,8 +197,6 @@ local MoveCon = nil
 
 local InitialX, InitialY, UIInitialPos
 
---// Functions
-
 local function Drag()
     if Holding == false then MoveCon:Disconnect(); return end
     local distanceMovedX = InitialX - Mouse.X
@@ -208,8 +204,6 @@ local function Drag()
 
     UI.Position = UIInitialPos - UDim2.new(0, distanceMovedX, 0, distanceMovedY)
 end
-
---// Connections
 
 UI.MouseEnter:Connect(function()
     Hovered = true
